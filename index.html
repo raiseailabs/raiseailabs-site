@@ -3,227 +3,1022 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RAISE – Responsible AI for Student Engagement</title>
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Optional: Custom styles -->
+  <title>RAISE - Responsible AI for Student Engagement</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    /* Smooth scrolling for navigation */
-    html {
-      scroll-behavior: smooth;
+    :root {
+      --primary: #4F46E5;
+      --primary-dark: #3730A3;
+      --secondary: #10B981;
+      --dark: #1F2937;
+      --light: #F9FAFB;
+      --gray: #6B7280;
+      --light-gray: #F3F4F6;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* Navbar */
+    .navbar {
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+    
+    .logo i {
+      margin-right: 0.5rem;
+      font-size: 1.75rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 2rem;
+    }
+    
+    .nav-links a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 8rem 2rem 6rem;
+      background: linear-gradient(135deg, #4F46E5 0%, #3730A3 100%);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,218.7C1248,192,1344,160,1392,144L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--secondary);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin: 0 0.5rem 1rem;
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid white;
+    }
+    
+    /* Section Styles */
+    section {
+      padding: 5rem 2rem;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    
+    .section-title h2 {
+      font-size: 2.25rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+    
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      margin: 1rem auto;
+      border-radius: 2px;
+    }
+    
+    .section-title p {
+      color: var(--gray);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* About Section */
+    .about {
+      background-color: white;
+    }
+    
+    /* Problem Section */
+    .problem {
+      background-color: var(--light-gray);
+    }
+    
+    /* Features Section */
+    .features {
+      background-color: white;
+    }
+    
+    .feature-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feature-icon {
+      background-color: var(--primary);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-right: 1.5rem;
+      flex-shrink: 0;
+    }
+    
+    .feature-content h3 {
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+    }
+    
+    /* Tech Stack */
+    .tech-stack {
+      background-color: var(--dark);
+      color: white;
+    }
+    
+    .tech-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .tech-table th, .tech-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .tech-table th {
+      background-color: rgba(0, 0, 0, 0.2);
+      font-weight: 600;
+    }
+    
+    .tech-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    /* Business Model */
+    .business-model {
+      background-color: var(--light-gray);
+    }
+    
+    .pricing-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .pricing-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      padding: 2rem;
+      flex: 1;
+      min-width: 250px;
+      max-width: 300px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    
+    .pricing-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .pricing-card h3 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    
+    .pricing-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0;
+    }
+    
+    .pricing-card li {
+      padding: 0.5rem 0;
+      display: flex;
+      align-items: center;
+    }
+    
+    .pricing-card li::before {
+      content: "✓";
+      color: var(--primary);
+      margin-right: 0.5rem;
+      font-weight: bold;
+    }
+    
+    .pricing-card .btn {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .pricing-card.featured {
+      border: 2px solid var(--primary);
+      transform: scale(1.05);
+    }
+    
+    .pricing-card.featured::before {
+      content: "Most Popular";
+      position: absolute;
+      top: 1rem;
+      right: -2rem;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.25rem 2rem;
+      transform: rotate(45deg);
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+    
+    /* Vision Section */
+    .vision {
+      background-color: white;
+    }
+    
+    .vision-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    
+    .vision-card {
+      background-color: var(--light-gray);
+      border-radius: 8px;
+      padding: 2rem;
+      flex: 1;
+      min-width: 250px;
+      text-align: center;
+    }
+    
+    .vision-card i {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .vision-card h3 {
+      margin-bottom: 1rem;
+    }
+    
+    /* Founder Section */
+    .founder {
+      background-color: var(--light-gray);
+    }
+    
+    .founder-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 3rem;
+    }
+    
+    .founder-img {
+      flex: 1;
+      min-width: 250px;
+      text-align: center;
+    }
+    
+    .founder-img img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .founder-info {
+      flex: 2;
+      min-width: 300px;
+    }
+    
+    .founder-info h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .founder-info p.title {
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    
+    /* Contact Section */
+    .contact {
+      background: linear-gradient(135deg, #4F46E5 0%, #3730A3 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .contact::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,224L48,213.3C96,203,192,181,288,154.7C384,128,480,96,576,106.7C672,117,768,171,864,197.3C960,224,1056,224,1152,202.7C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+    }
+    
+    .contact-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .contact-info {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .contact-info h3 {
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .contact-info ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .contact-info li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .contact-info i {
+      margin-right: 1rem;
+      font-size: 1.25rem;
+    }
+    
+    .contact-form {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .contact-form h3 {
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 4px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1rem;
+    }
+    
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .form-control:focus {
+      outline: none;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .btn-submit {
+      background-color: white;
+      color: var(--primary);
+      cursor: pointer;
+      border: none;
+      width: 100%;
+    }
+    
+    /* Responsible AI Ethos Section */
+    .ethos {
+      background-color: white;
+    }
+    
+    .ethos-content ul {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+    
+    .ethos-content li {
+      margin: 1rem 0;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .social-links {
+      margin-bottom: 1.5rem;
+    }
+    
+    .social-links a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      margin: 0 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.25rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.25rem;
+      }
+      
+      .section-title h2 {
+        font-size: 1.75rem;
+      }
+      
+      .hamburger {
+        display: block;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transform: translateY(-150%);
+        transition: transform 0.3s ease;
+      }
+      
+      .nav-links.active {
+        transform: translateY(0);
+      }
+      
+      .nav-links li {
+        margin: 1rem 0;
+      }
+      
+      .feature-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .feature-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+      
+      .pricing-card {
+        min-width: 100%;
+      }
+      
+      .pricing-card.featured {
+        transform: scale(1);
+      }
+    }
+    
+    /* Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-in {
+      animation: fadeIn 1s ease forwards;
+    }
+    
+    .delay-100 {
+      animation-delay: 0.1s;
+    }
+    
+    .delay-200 {
+      animation-delay: 0.2s;
+    }
+    
+    .delay-300 {
+      animation-delay: 0.3s;
+    }
+    
+    .delay-400 {
+      animation-delay: 0.4s;
+    }
+    
+    .delay-500 {
+      animation-delay: 0.5s;
     }
   </style>
 </head>
-<body class="font-sans text-gray-900">
-  <!-- Navigation -->
-  <header class="bg-white shadow fixed w-full z-10">
-    <div class="container mx-auto flex items-center justify-between p-4">
-      <a href="#hero" class="text-2xl font-bold">RAISE</a>
-      <nav class="space-x-4 hidden md:block">
-        <a href="#about" class="hover:text-blue-500">About</a>
-        <a href="#problem" class="hover:text-blue-500">Problem</a>
-        <a href="#solution" class="hover:text-blue-500">Solution</a>
-        <a href="#tech" class="hover:text-blue-500">Tech Stack</a>
-        <a href="#contact" class="hover:text-blue-500">Contact</a>
-      </nav>
-      <!-- Mobile nav toggle can be added here if needed -->
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <i class="fas fa-brain"></i> RAISE
     </div>
-  </header>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#problem">Problem</a></li>
+      <li><a href="#solution">Solution</a></li>
+      <li><a href="#tech">Tech Stack</a></li>
+      <li><a href="#business">Business Model</a></li>
+      <li><a href="#vision">Vision</a></li>
+      <li><a href="#founder">Founder</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
 
   <!-- Hero Section -->
-  <section id="hero" class="pt-24 bg-gradient-to-r from-blue-400 to-purple-500 text-white">
-    <div class="container mx-auto px-4 py-20 text-center">
-      <h1 class="text-4xl md:text-6xl font-bold mb-4">RAISE – Responsible AI for Student Engagement</h1>
-      <p class="text-xl md:text-2xl mb-8">AI-Powered Teaching Assistant Platform for Professors</p>
-      <a href="#about" class="bg-white text-blue-600 font-semibold px-6 py-3 rounded shadow hover:bg-gray-100 transition">
-        Learn More
-      </a>
-    </div>
-  </section>
-
-  <!-- About Us -->
-  <section id="about" class="container mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold mb-4">About Us</h2>
-    <p class="mb-6">
-      RAISE stands for Responsible AI for Student Engagement. We’re building an AI-powered teaching assistant platform designed to help professors streamline their most time-consuming tasks—so they can focus on what really matters: teaching and inspiring students.
-    </p>
-    <p>
-      Born from firsthand experience as a student, grader, and researcher, RAISE is our response to the overwhelming administrative load on educators today. AI isn’t here to replace—it's here to elevate the learning experience.
-    </p>
-  </section>
-
-  <!-- The Problem -->
-  <section id="problem" class="bg-gray-100 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-4">The Problem</h2>
-      <ul class="list-disc pl-5 space-y-2">
-        <li>Professors grade hundreds of assignments.</li>
-        <li>They answer the same student questions repeatedly.</li>
-        <li>Tracking student performance across huge classes is a nightmare.</li>
-      </ul>
-      <p class="mt-4">All this admin work leaves less time for meaningful teaching and personalized student support.</p>
-    </div>
-  </section>
-
-  <!-- Our Solution -->
-  <section id="solution" class="container mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold mb-4">Our Solution</h2>
-    <p class="mb-6">
-      RAISE is a centralized AI platform that acts as a 24/7 teaching assistant.
-    </p>
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="p-6 border rounded-lg shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold mb-2">AI Quiz & Assignment Generator</h3>
-        <p>Generate Bloom’s Taxonomy-based questions from lecture slides, textbooks, or syllabi.</p>
-      </div>
-      <div class="p-6 border rounded-lg shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold mb-2">Auto-Grader with Feedback</h3>
-        <p>Automatically grade code, short answers, or essays with structured AI-generated feedback.</p>
-      </div>
-      <div class="p-6 border rounded-lg shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold mb-2">Course-Specific Chatbot (AI Office Hours)</h3>
-        <p>Trained on course content to answer repetitive student queries—anytime.</p>
-      </div>
-      <div class="p-6 border rounded-lg shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold mb-2">Real-Time Student Engagement Dashboard</h3>
-        <p>Shows who’s struggling, where learning gaps exist, and suggests interventions.</p>
-      </div>
-      <div class="p-6 border rounded-lg shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold mb-2">Adaptive Content Engine (Coming Soon)</h3>
-        <p>Simplifies difficult topics, creates summaries, and recommends resources based on learning levels.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tech Stack -->
-  <section id="tech" class="bg-gray-100 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-4">Tech Stack (MVP)</h2>
-      <div class="overflow-x-auto">
-        <table class="min-w-full text-left border-collapse">
-          <thead>
-            <tr>
-              <th class="border p-3 bg-blue-200">Component</th>
-              <th class="border p-3 bg-blue-200">Stack</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="border p-3">LLM Backend</td>
-              <td class="border p-3">OpenAI GPT-4 / Claude / Mistral</td>
-            </tr>
-            <tr>
-              <td class="border p-3">Retrieval (RAG)</td>
-              <td class="border p-3">LangChain + Chroma/Weaviate</td>
-            </tr>
-            <tr>
-              <td class="border p-3">Frontend</td>
-              <td class="border p-3">React.js + Tailwind CSS</td>
-            </tr>
-            <tr>
-              <td class="border p-3">LMS Integration</td>
-              <td class="border p-3">LTI + Moodle / Canvas APIs</td>
-            </tr>
-            <tr>
-              <td class="border p-3">Backend</td>
-              <td class="border p-3">FastAPI + PostgreSQL</td>
-            </tr>
-            <tr>
-              <td class="border p-3">Auto-Grading (Coding)</td>
-              <td class="border p-3">Python + nbgrader/custom test suite</td>
-            </tr>
-            <tr>
-              <td class="border p-3">Hosting (MVP)</td>
-              <td class="border p-3">GitHub Pages + Netlify/Vercel</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- Business Model -->
-  <section id="business" class="container mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold mb-4">Business Model</h2>
-    <ul class="list-disc pl-5 space-y-2">
-      <li><strong>Freemium Tier:</strong> For individual educators with basic features.</li>
-      <li><strong>Premium Plans:</strong> Unlock LMS integration, dashboards, adaptive feedback.</li>
-      <li><strong>Campus Licensing (B2B):</strong> Full access plus support for entire institutions.</li>
-      <li><strong>Add-Ons:</strong> Plagiarism detection, voice-based quiz generation, peer grading.</li>
-    </ul>
-  </section>
-
-  <!-- Current Stage -->
-  <section id="stage" class="bg-gray-100 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-4">Current Stage</h2>
-      <p>
-        RAISE is in the concept and early development phase. We’ve validated the problem through our academic experience and now plan to:
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="fade-in">Responsible AI for Student Engagement</h1>
+      <p class="fade-in delay-100">
+        An AI-powered teaching assistant platform designed to help professors streamline administrative tasks—so they can focus on what matters most: teaching and inspiring students.
       </p>
-      <ul class="list-disc pl-5 mt-4">
-        <li>Build an MVP (Minimum Viable Product)</li>
-        <li>Run early pilots with professors at NC State</li>
-        <li>Iterate with real user feedback</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Founder -->
-  <section id="founder" class="container mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold mb-4">Founder</h2>
-    <div class="flex flex-col md:flex-row items-center">
-      <div class="md:w-1/3 mb-4 md:mb-0">
-        <!-- You can replace the placeholder with your photo -->
-        <img src="https://via.placeholder.com/300" alt="Founder Photo" class="rounded-full shadow">
-      </div>
-      <div class="md:w-2/3 md:pl-8">
-        <p class="text-xl font-semibold">Deepak Sai Pendyala</p>
-        <p>M.S. in Computer Science, NC State University</p>
-        <p>Background in research, teaching, and AI/ML product development. Former Applied Scientist Intern @ Amazon. Passionate about human-centered, responsible AI in education.</p>
+      <div class="fade-in delay-200">
+        <a href="#solution" class="btn">Discover Features</a>
+        <a href="#contact" class="btn btn-outline">Contact Us</a>
       </div>
     </div>
   </section>
 
-  <!-- Vision -->
-  <section id="vision" class="bg-gray-100 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-4">Our Vision</h2>
-      <p>
-        We envision a future where educators don’t burn out on admin work, and students feel every course was tailored just for them. AI will empower—not replace—humans in the learning process.
-      </p>
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Us</h2>
+        <p>Born from firsthand experience as a student, grader, and researcher, RAISE is our response to the overwhelming amount of administrative work placed on educators today.</p>
+      </div>
+      <div class="about-content">
+        <p>
+          RAISE stands for Responsible AI for Student Engagement. We're building an AI-powered teaching assistant platform designed to help professors and educators streamline their most time-consuming tasks—so they can focus on what really matters: teaching and inspiring students.
+        </p>
+        <p>
+          We believe AI can do more than automate—it can enhance learning experiences and humanize education at scale.
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="container mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
-    <p class="mb-4">
-      📧 <a href="mailto:founders.raiseai@gmail.com" class="text-blue-500 hover:underline">founders.raiseai@gmail.com</a><br>
-      🌐 <a href="http://raiseai.me" class="text-blue-500 hover:underline" target="_blank">raiseai.me</a><br>
-      📍 Based in Raleigh, North Carolina
-    </p>
-    <p>
-      We’re looking for collaborators, mentors, and early adopters. Let’s build the future of teaching—together.
-    </p>
+  <!-- Problem Section -->
+  <section id="problem" class="problem">
+    <div class="container">
+      <div class="section-title">
+        <h2>The Problem</h2>
+        <p>Professors are under intense pressure with administrative tasks that take away from meaningful teaching time.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon">
+          <i class="fas fa-tasks"></i>
+        </div>
+        <div class="feature-content">
+          <h3>Overwhelming Admin Work</h3>
+          <p>Professors are expected to grade hundreds of assignments, answer repetitive student questions, and track student performance across huge classes.</p>
+        </div>
+      </div>
+      <div class="feature-card fade-in delay-100">
+        <div class="feature-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <div class="feature-content">
+          <h3>Time Constraints</h3>
+          <p>All of this administrative burden adds up to less time for meaningful teaching and providing personalized student support.</p>
+        </div>
+      </div>
+      <div class="feature-card fade-in delay-200">
+        <div class="feature-icon">
+          <i class="fas fa-user-graduate"></i>
+        </div>
+        <div class="feature-content">
+          <h3>Student Engagement Challenges</h3>
+          <p>Large class sizes make it difficult to identify struggling students and address individual learning needs effectively.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- Responsible AI Ethos -->
-  <section id="ethos" class="bg-gray-100 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-4">Responsible AI Ethos</h2>
-      <ul class="list-disc pl-5 space-y-2">
-        <li><strong>Professor-in-the-loop:</strong> AI assists, never replaces.</li>
-        <li><strong>Data privacy first:</strong> FERPA-compliant architecture.</li>
-        <li><strong>Built for trust:</strong> Control and transparency in education.</li>
-      </ul>
+  <!-- Solution/Features Section -->
+  <section id="solution" class="features">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Solution</h2>
+        <p>RAISE is a centralized AI platform that acts as a 24/7 teaching assistant, handling repetitive tasks and providing valuable insights.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon">
+          <i class="fas fa-clipboard-list"></i>
+        </div>
+        <div class="feature-content">
+          <h3>AI Quiz & Assignment Generator</h3>
+          <p>Generate Bloom's Taxonomy-based questions from lecture slides, textbooks, or syllabi, saving hours of preparation time.</p>
+        </div>
+      </div>
+      <div class="feature-card fade-in delay-100">
+        <div class="feature-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="feature-content">
+          <h3>Auto-Grader with Feedback</h3>
+          <p>Automatically grade code, short answers, or essays with structured AI-generated feedback that helps students learn from their mistakes.</p>
+        </div>
+      </div>
+      <div class="feature-card fade-in delay-200">
+        <div class="feature-icon">
+          <i class="fas fa-comments"></i>
+        </div>
+        <div class="feature-content">
+          <h3>Course-Specific Chatbot (AI Office Hours)</h3>
+          <p>Trained on course content, this feature answers repetitive student queries anytime—"What's due this week?", "Explain Merge Sort."</p>
+        </div>
+      </div>
+      <div class="feature-card fade-in delay-300">
+        <div class="feature-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <div class="feature-content">
+          <h3>Real-Time Student Engagement Dashboard</h3>
+          <p>Shows who's struggling, where learning gaps exist, and suggests interventions to improve student outcomes.</p>
+        </div>
+      </div>
+      <div class="feature-card fade-in delay-400">
+        <div class="feature-icon">
+          <i class="fas fa-cogs"></i>
+        </div>
+        <div class="feature-content">
+          <h3>Adaptive Content Engine (Coming Soon)</h3>
+          <p>Simplifies difficult topics, creates summaries, and recommends additional resources based on individual learning levels.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section id="tech" class="tech-stack">
+    <div class="container">
+      <div class="section-title">
+        <h2>Tech Stack (MVP)</h2>
+        <p>Built with modern, scalable technologies to ensure performance, security, and ease of integration.</p>
+      </div>
+      <table class="tech-table">
+        <tr>
+          <th>Component</th>
+          <th>Stack</th>
+        </tr>
+        <tr>
+          <td>LLM Backend</td>
+          <td>OpenAI GPT-4 / Claude / Mistral</td>
+        </tr>
+        <tr>
+          <td>Retrieval (RAG)</td>
+          <td>LangChain + Chroma/Weaviate</td>
+        </tr>
+        <tr>
+          <td>Frontend</td>
+          <td>React.js + Tailwind CSS</td>
+        </tr>
+        <tr>
+          <td>LMS Integration</td>
+          <td>LTI + Moodle / Canvas APIs</td>
+        </tr>
+        <tr>
+          <td>Backend</td>
+          <td>FastAPI + PostgreSQL</td>
+        </tr>
+        <tr>
+          <td>Auto-Grading (Coding)</td>
+          <td>Python + nbgrader/custom test suite</td>
+        </tr>
+        <tr>
+          <td>Hosting (MVP)</td>
+          <td>GitHub Pages + Netlify/Vercel</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- Business Model Section -->
+  <section id="business" class="business-model">
+    <div class="container">
+      <div class="section-title">
+        <h2>Business Model</h2>
+        <p>Flexible pricing options designed to meet the needs of individual educators and institutions alike.</p>
+      </div>
+      <div class="pricing-cards">
+        <div class="pricing-card fade-in">
+          <h3>Freemium Tier</h3>
+          <p>For individual educators</p>
+          <ul>
+            <li>Basic quiz generation</li>
+            <li>Limited auto-grading</li>
+            <li>Simple student chatbot</li>
+            <li>Up to 30 students</li>
+          </ul>
+          <a href="#contact" class="btn">Get Started</a>
+        </div>
+        <div class="pricing-card featured fade-in delay-100">
+          <h3>Premium Plans</h3>
+          <p>For dedicated educators</p>
+          <ul>
+            <li>Full quiz generation</li>
+            <li>Advanced auto-grading</li>
+            <li>LMS integration</li>
+            <li>Analytics dashboard</li>
+            <li>Unlimited students</li>
+          </ul>
+          <a href="#contact" class="btn">Contact Us</a>
+        </div>
+        <div class="pricing-card fade-in delay-200">
+          <h3>Campus License</h3>
+          <p>For entire institutions</p>
+          <ul>
+            <li>All Premium features</li>
+            <li>Custom integration</li>
+            <li>Dedicated support</li>
+            <li>Custom add-ons</li>
+            <li>Multiple departments</li>
+          </ul>
+          <a href="#contact" class="btn">Request Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision Section -->
+  <section id="vision" class="vision">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Vision</h2>
+        <p>We're building a future where AI empowers—not replaces—humans in the learning process.</p>
+      </div>
+      <div class="vision-cards">
+        <div class="vision-card fade-in">
+          <i class="fas fa-heart"></i>
+          <h3>Preventing Educator Burnout</h3>
+          <p>We envision a future where educators don't burn out on administrative work but can focus on their passion for teaching.</p>
+        </div>
+        <div class="vision-card fade-in delay-100">
+          <i class="fas fa-users"></i>
+          <h3>Personalized Learning</h3>
+          <p>Students feel like the course was designed just for them, not like they're one of 500 in a lecture hall.</p>
+        </div>
+        <div class="vision-card fade-in delay-200">
+          <i class="fas fa-shield-alt"></i>
+          <h3>Empowering Human Connection</h3>
+          <p>AI works alongside educators to enhance learning without replacing the human touch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder Section -->
+  <section id="founder" class="founder">
+    <div class="container">
+      <div class="section-title">
+        <h2>Founder</h2>
+        <p>Meet the mind behind RAISE.</p>
+      </div>
+      <div class="founder-content">
+        <div class="founder-img">
+          <img src="https://via.placeholder.com/200" alt="Founder Deepak Sai Pendyala" />
+        </div>
+        <div class="founder-info">
+          <h3>Deepak Sai Pendyala</h3>
+          <p class="title">M.S. in Computer Science, NC State University</p>
+          <p>
+            With a background in research, teaching, and AI/ML product development, Deepak has built academic tools and led large student tech communities. Previously an Applied Scientist Intern at Amazon, he’s all about human-centered, responsible AI in education.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact Us</h2>
+        <p>
+          We’re looking for collaborators, mentors, and early adopters. Let’s build the future of teaching—together.
+        </p>
+      </div>
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <ul>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:founders.raiseai@gmail.com">founders.raiseai@gmail.com</a></li>
+            <li><i class="fas fa-map-marker-alt"></i> Raleigh, North Carolina</li>
+            <li><i class="fas fa-globe"></i> <a href="http://raiseai.me" target="_blank">raiseai.me</a></li>
+          </ul>
+        </div>
+        <div class="contact-form">
+          <h3>Send a Message</h3>
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Your Email" required />
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Responsible AI Ethos Section -->
+  <section id="ethos" class="ethos">
+    <div class="container">
+      <div class="section-title">
+        <h2>Responsible AI Ethos</h2>
+        <p>Our commitment to ethical AI in education</p>
+      </div>
+      <div class="ethos-content">
+        <ul>
+          <li><strong>Professor-in-the-loop:</strong> AI assists, never replaces.</li>
+          <li><strong>Data privacy first:</strong> FERPA-compliant architecture ensuring student data is secure.</li>
+          <li><strong>Transparency & Trust:</strong> Built for control, trust, and accountability in education.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-white py-4 border-t">
-    <div class="container mx-auto px-4 text-center text-gray-600">
-      &copy; 2025 RAISE. All rights reserved.
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+      </div>
+      <p class="copyright">&copy; 2025 RAISE. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- JavaScript for Mobile Navbar -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
