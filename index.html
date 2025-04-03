@@ -1,10 +1,229 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RAISE – Responsible AI for Student Engagement</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Optional: Custom styles -->
+  <style>
+    /* Smooth scrolling for navigation */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
-<body>
-  <h1>Welcome to RAISE</h1>
-  <p>AI-powered teaching assistant coming soon...</p>
+<body class="font-sans text-gray-900">
+  <!-- Navigation -->
+  <header class="bg-white shadow fixed w-full z-10">
+    <div class="container mx-auto flex items-center justify-between p-4">
+      <a href="#hero" class="text-2xl font-bold">RAISE</a>
+      <nav class="space-x-4 hidden md:block">
+        <a href="#about" class="hover:text-blue-500">About</a>
+        <a href="#problem" class="hover:text-blue-500">Problem</a>
+        <a href="#solution" class="hover:text-blue-500">Solution</a>
+        <a href="#tech" class="hover:text-blue-500">Tech Stack</a>
+        <a href="#contact" class="hover:text-blue-500">Contact</a>
+      </nav>
+      <!-- Mobile nav toggle can be added here if needed -->
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="pt-24 bg-gradient-to-r from-blue-400 to-purple-500 text-white">
+    <div class="container mx-auto px-4 py-20 text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">RAISE – Responsible AI for Student Engagement</h1>
+      <p class="text-xl md:text-2xl mb-8">AI-Powered Teaching Assistant Platform for Professors</p>
+      <a href="#about" class="bg-white text-blue-600 font-semibold px-6 py-3 rounded shadow hover:bg-gray-100 transition">
+        Learn More
+      </a>
+    </div>
+  </section>
+
+  <!-- About Us -->
+  <section id="about" class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold mb-4">About Us</h2>
+    <p class="mb-6">
+      RAISE stands for Responsible AI for Student Engagement. We’re building an AI-powered teaching assistant platform designed to help professors streamline their most time-consuming tasks—so they can focus on what really matters: teaching and inspiring students.
+    </p>
+    <p>
+      Born from firsthand experience as a student, grader, and researcher, RAISE is our response to the overwhelming administrative load on educators today. AI isn’t here to replace—it's here to elevate the learning experience.
+    </p>
+  </section>
+
+  <!-- The Problem -->
+  <section id="problem" class="bg-gray-100 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-4">The Problem</h2>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Professors grade hundreds of assignments.</li>
+        <li>They answer the same student questions repeatedly.</li>
+        <li>Tracking student performance across huge classes is a nightmare.</li>
+      </ul>
+      <p class="mt-4">All this admin work leaves less time for meaningful teaching and personalized student support.</p>
+    </div>
+  </section>
+
+  <!-- Our Solution -->
+  <section id="solution" class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold mb-4">Our Solution</h2>
+    <p class="mb-6">
+      RAISE is a centralized AI platform that acts as a 24/7 teaching assistant.
+    </p>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="p-6 border rounded-lg shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2">AI Quiz & Assignment Generator</h3>
+        <p>Generate Bloom’s Taxonomy-based questions from lecture slides, textbooks, or syllabi.</p>
+      </div>
+      <div class="p-6 border rounded-lg shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2">Auto-Grader with Feedback</h3>
+        <p>Automatically grade code, short answers, or essays with structured AI-generated feedback.</p>
+      </div>
+      <div class="p-6 border rounded-lg shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2">Course-Specific Chatbot (AI Office Hours)</h3>
+        <p>Trained on course content to answer repetitive student queries—anytime.</p>
+      </div>
+      <div class="p-6 border rounded-lg shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2">Real-Time Student Engagement Dashboard</h3>
+        <p>Shows who’s struggling, where learning gaps exist, and suggests interventions.</p>
+      </div>
+      <div class="p-6 border rounded-lg shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2">Adaptive Content Engine (Coming Soon)</h3>
+        <p>Simplifies difficult topics, creates summaries, and recommends resources based on learning levels.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section id="tech" class="bg-gray-100 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-4">Tech Stack (MVP)</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-left border-collapse">
+          <thead>
+            <tr>
+              <th class="border p-3 bg-blue-200">Component</th>
+              <th class="border p-3 bg-blue-200">Stack</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border p-3">LLM Backend</td>
+              <td class="border p-3">OpenAI GPT-4 / Claude / Mistral</td>
+            </tr>
+            <tr>
+              <td class="border p-3">Retrieval (RAG)</td>
+              <td class="border p-3">LangChain + Chroma/Weaviate</td>
+            </tr>
+            <tr>
+              <td class="border p-3">Frontend</td>
+              <td class="border p-3">React.js + Tailwind CSS</td>
+            </tr>
+            <tr>
+              <td class="border p-3">LMS Integration</td>
+              <td class="border p-3">LTI + Moodle / Canvas APIs</td>
+            </tr>
+            <tr>
+              <td class="border p-3">Backend</td>
+              <td class="border p-3">FastAPI + PostgreSQL</td>
+            </tr>
+            <tr>
+              <td class="border p-3">Auto-Grading (Coding)</td>
+              <td class="border p-3">Python + nbgrader/custom test suite</td>
+            </tr>
+            <tr>
+              <td class="border p-3">Hosting (MVP)</td>
+              <td class="border p-3">GitHub Pages + Netlify/Vercel</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Model -->
+  <section id="business" class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold mb-4">Business Model</h2>
+    <ul class="list-disc pl-5 space-y-2">
+      <li><strong>Freemium Tier:</strong> For individual educators with basic features.</li>
+      <li><strong>Premium Plans:</strong> Unlock LMS integration, dashboards, adaptive feedback.</li>
+      <li><strong>Campus Licensing (B2B):</strong> Full access plus support for entire institutions.</li>
+      <li><strong>Add-Ons:</strong> Plagiarism detection, voice-based quiz generation, peer grading.</li>
+    </ul>
+  </section>
+
+  <!-- Current Stage -->
+  <section id="stage" class="bg-gray-100 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-4">Current Stage</h2>
+      <p>
+        RAISE is in the concept and early development phase. We’ve validated the problem through our academic experience and now plan to:
+      </p>
+      <ul class="list-disc pl-5 mt-4">
+        <li>Build an MVP (Minimum Viable Product)</li>
+        <li>Run early pilots with professors at NC State</li>
+        <li>Iterate with real user feedback</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Founder -->
+  <section id="founder" class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold mb-4">Founder</h2>
+    <div class="flex flex-col md:flex-row items-center">
+      <div class="md:w-1/3 mb-4 md:mb-0">
+        <!-- You can replace the placeholder with your photo -->
+        <img src="https://via.placeholder.com/300" alt="Founder Photo" class="rounded-full shadow">
+      </div>
+      <div class="md:w-2/3 md:pl-8">
+        <p class="text-xl font-semibold">Deepak Sai Pendyala</p>
+        <p>M.S. in Computer Science, NC State University</p>
+        <p>Background in research, teaching, and AI/ML product development. Former Applied Scientist Intern @ Amazon. Passionate about human-centered, responsible AI in education.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision -->
+  <section id="vision" class="bg-gray-100 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-4">Our Vision</h2>
+      <p>
+        We envision a future where educators don’t burn out on admin work, and students feel every course was tailored just for them. AI will empower—not replace—humans in the learning process.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
+    <p class="mb-4">
+      📧 <a href="mailto:founders.raiseai@gmail.com" class="text-blue-500 hover:underline">founders.raiseai@gmail.com</a><br>
+      🌐 <a href="http://raiseai.me" class="text-blue-500 hover:underline" target="_blank">raiseai.me</a><br>
+      📍 Based in Raleigh, North Carolina
+    </p>
+    <p>
+      We’re looking for collaborators, mentors, and early adopters. Let’s build the future of teaching—together.
+    </p>
+  </section>
+
+  <!-- Responsible AI Ethos -->
+  <section id="ethos" class="bg-gray-100 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-4">Responsible AI Ethos</h2>
+      <ul class="list-disc pl-5 space-y-2">
+        <li><strong>Professor-in-the-loop:</strong> AI assists, never replaces.</li>
+        <li><strong>Data privacy first:</strong> FERPA-compliant architecture.</li>
+        <li><strong>Built for trust:</strong> Control and transparency in education.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white py-4 border-t">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 RAISE. All rights reserved.
+    </div>
+  </footer>
 </body>
 </html>
