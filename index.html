@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>RAISE - Responsible AI for Student Engagement</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
     :root {
       --primary: #4F46E5;
@@ -13,11 +13,7 @@
       --dark: #1F2937;
       --light: #F9FAFB;
       --gray: #6B7280;
-      --light-gray: #F3F4F6;Tech Stack (MVP)
-
-    }
-        #tech .section-title h2 {
-      color: #ffffff;
+      --light-gray: #F3F4F6;
     }
     * {
       margin: 0;
@@ -25,14 +21,12 @@
       box-sizing: border-box;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    
     body {
       background-color: var(--light);
       color: var(--dark);
       line-height: 1.6;
       overflow-x: hidden;
     }
-    
     /* Navbar */
     .navbar {
       background-color: rgba(255, 255, 255, 0.95);
@@ -46,7 +40,6 @@
       justify-content: space-between;
       align-items: center;
     }
-    
     .logo {
       display: flex;
       align-items: center;
@@ -54,38 +47,31 @@
       font-size: 1.5rem;
       color: var(--primary);
     }
-    
     .logo i {
       margin-right: 0.5rem;
       font-size: 1.75rem;
     }
-    
     .nav-links {
       display: flex;
       list-style: none;
     }
-    
     .nav-links li {
       margin-left: 2rem;
     }
-    
     .nav-links a {
       color: var(--dark);
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s ease;
     }
-    
     .nav-links a:hover {
       color: var(--primary);
     }
-    
     .hamburger {
       display: none;
       cursor: pointer;
       font-size: 1.5rem;
     }
-    
     /* Hero Section */
     .hero {
       padding: 8rem 2rem 6rem;
@@ -95,39 +81,32 @@
       position: relative;
       overflow: hidden;
     }
-    
     .hero::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,218.7C1248,192,1344,160,1392,144L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
       background-size: cover;
       background-position: center;
       opacity: 0.2;
     }
-    
     .hero-content {
       max-width: 800px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
     }
-    
     .hero h1 {
       font-size: 3rem;
       margin-bottom: 1rem;
       letter-spacing: -1px;
     }
-    
     .hero p {
       font-size: 1.25rem;
       margin-bottom: 2rem;
       opacity: 0.9;
     }
-    
     .btn {
       display: inline-block;
       padding: 0.75rem 1.5rem;
@@ -139,39 +118,32 @@
       transition: all 0.3s ease;
       margin: 0 0.5rem 1rem;
     }
-    
     .btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
-    
     .btn-outline {
       background-color: transparent;
       border: 2px solid white;
     }
-    
     /* Section Styles */
     section {
       padding: 5rem 2rem;
     }
-    
     .container {
       max-width: 1200px;
       margin: 0 auto;
     }
-    
     .section-title {
       text-align: center;
       margin-bottom: 3rem;
       position: relative;
     }
-    
     .section-title h2 {
       font-size: 2.25rem;
       color: var(--dark);
       margin-bottom: 1rem;
     }
-    
     .section-title::after {
       content: "";
       display: block;
@@ -181,29 +153,24 @@
       margin: 1rem auto;
       border-radius: 2px;
     }
-    
     .section-title p {
       color: var(--gray);
       font-size: 1.1rem;
       max-width: 600px;
       margin: 0 auto;
     }
-    
     /* About Section */
     .about {
       background-color: white;
     }
-    
     /* Problem Section */
     .problem {
       background-color: var(--light-gray);
     }
-    
     /* Features Section */
     .features {
       background-color: white;
     }
-    
     .feature-card {
       background-color: white;
       border-radius: 8px;
@@ -214,12 +181,10 @@
       display: flex;
       align-items: flex-start;
     }
-    
     .feature-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
-    
     .feature-icon {
       background-color: var(--primary);
       color: white;
@@ -233,18 +198,60 @@
       margin-right: 1.5rem;
       flex-shrink: 0;
     }
-    
     .feature-content h3 {
       margin-bottom: 0.75rem;
       font-size: 1.25rem;
     }
-    
+    /* Pitch Section */
+    .pitch {
+      background-color: var(--light-gray);
+    }
+    .pitch-subtitle {
+      color: var(--gray);
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      max-width: 800px;
+      line-height: 1.5;
+    }
+    .pitch h3 {
+      margin-bottom: 0.75rem;
+      font-size: 1.2rem;
+      color: var(--dark);
+      font-weight: 600;
+    }
+    .pitch-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: flex-start;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .pitch-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    .pitch-icon {
+      background-color: var(--secondary);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
     /* Tech Stack */
     .tech-stack {
       background-color: var(--dark);
       color: white;
     }
-    
     .tech-table {
       width: 100%;
       border-collapse: collapse;
@@ -253,27 +260,22 @@
       border-radius: 8px;
       overflow: hidden;
     }
-    
     .tech-table th, .tech-table td {
       padding: 1rem;
       text-align: left;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
     .tech-table th {
       background-color: rgba(0, 0, 0, 0.2);
       font-weight: 600;
     }
-    
     .tech-table tr:last-child td {
       border-bottom: none;
     }
-    
     /* Business Model */
     .business-model {
       background-color: var(--light-gray);
     }
-    
     .pricing-cards {
       display: flex;
       flex-wrap: wrap;
@@ -281,11 +283,10 @@
       gap: 2rem;
       margin-top: 3rem;
     }
-    
     .pricing-card {
       background-color: white;
       border-radius: 8px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
       padding: 2rem;
       flex: 1;
       min-width: 250px;
@@ -294,45 +295,37 @@
       overflow: hidden;
       transition: transform 0.3s ease;
     }
-    
     .pricing-card:hover {
       transform: translateY(-5px);
     }
-    
     .pricing-card h3 {
       margin-bottom: 1rem;
       font-size: 1.5rem;
     }
-    
     .pricing-card ul {
       list-style: none;
       padding: 0;
       margin: 1.5rem 0;
     }
-    
     .pricing-card li {
       padding: 0.5rem 0;
       display: flex;
       align-items: center;
     }
-    
     .pricing-card li::before {
       content: "✓";
       color: var(--primary);
       margin-right: 0.5rem;
       font-weight: bold;
     }
-    
     .pricing-card .btn {
       width: 100%;
       text-align: center;
     }
-    
     .pricing-card.featured {
       border: 2px solid var(--primary);
       transform: scale(1.05);
     }
-    
     .pricing-card.featured::before {
       content: "Most Popular";
       position: absolute;
@@ -345,19 +338,16 @@
       font-size: 0.75rem;
       font-weight: bold;
     }
-    
     /* Vision Section */
     .vision {
       background-color: white;
     }
-    
     .vision-cards {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 2rem;
     }
-    
     .vision-card {
       background-color: var(--light-gray);
       border-radius: 8px;
@@ -366,35 +356,29 @@
       min-width: 250px;
       text-align: center;
     }
-    
     .vision-card i {
       font-size: 2.5rem;
       color: var(--primary);
       margin-bottom: 1rem;
     }
-    
     .vision-card h3 {
       margin-bottom: 1rem;
     }
-    
     /* Founder Section */
     .founder {
       background-color: var(--light-gray);
     }
-    
     .founder-content {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 3rem;
     }
-    
     .founder-img {
       flex: 1;
       min-width: 250px;
       text-align: center;
     }
-    
     .founder-img img {
       width: 200px;
       height: 200px;
@@ -403,23 +387,19 @@
       border: 4px solid white;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
-    
     .founder-info {
       flex: 2;
       min-width: 300px;
     }
-    
     .founder-info h3 {
       margin-bottom: 0.5rem;
       font-size: 1.5rem;
     }
-    
     .founder-info p.title {
       color: var(--primary);
       font-weight: 500;
       margin-bottom: 1rem;
     }
-    
     /* Contact Section */
     .contact {
       background: linear-gradient(135deg, #4F46E5 0%, #3730A3 100%);
@@ -427,20 +407,16 @@
       position: relative;
       overflow: hidden;
     }
-    
     .contact::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,224L48,213.3C96,203,192,181,288,154.7C384,128,480,96,576,106.7C672,117,768,171,864,197.3C960,224,1056,224,1152,202.7C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
       background-size: cover;
       background-position: center;
       opacity: 0.2;
     }
-    
     .contact-content {
       display: flex;
       flex-wrap: wrap;
@@ -448,47 +424,38 @@
       position: relative;
       z-index: 1;
     }
-    
     .contact-info {
       flex: 1;
       min-width: 300px;
     }
-    
     .contact-info h3 {
       margin-bottom: 1.5rem;
       font-size: 1.5rem;
     }
-    
     .contact-info ul {
       list-style: none;
       padding: 0;
     }
-    
     .contact-info li {
       margin-bottom: 1rem;
       display: flex;
       align-items: center;
     }
-    
     .contact-info i {
       margin-right: 1rem;
       font-size: 1.25rem;
     }
-    
     .contact-form {
       flex: 1;
       min-width: 300px;
     }
-    
     .contact-form h3 {
       margin-bottom: 1.5rem;
       font-size: 1.5rem;
     }
-    
     .form-group {
       margin-bottom: 1.5rem;
     }
-    
     .form-control {
       width: 100%;
       padding: 0.75rem;
@@ -498,16 +465,13 @@
       color: white;
       font-size: 1rem;
     }
-    
     .form-control::placeholder {
       color: rgba(255, 255, 255, 0.7);
     }
-    
     .form-control:focus {
       outline: none;
       background-color: rgba(255, 255, 255, 0.2);
     }
-    
     .btn-submit {
       background-color: white;
       color: var(--primary);
@@ -515,12 +479,10 @@
       border: none;
       width: 100%;
     }
-    
     /* Responsible AI Ethos Section */
     .ethos {
       background-color: white;
     }
-    
     .ethos-content ul {
       list-style: none;
       padding: 0;
@@ -528,11 +490,9 @@
       margin: 0 auto;
       font-size: 1.1rem;
     }
-    
     .ethos-content li {
       margin: 1rem 0;
     }
-    
     /* Footer */
     footer {
       background-color: var(--dark);
@@ -540,11 +500,9 @@
       text-align: center;
       padding: 2rem;
     }
-    
     .social-links {
       margin-bottom: 1.5rem;
     }
-    
     .social-links a {
       display: inline-block;
       width: 40px;
@@ -559,31 +517,25 @@
       font-size: 1.25rem;
       transition: all 0.3s ease;
     }
-    
     .social-links a:hover {
       background-color: var(--primary);
       transform: translateY(-3px);
     }
-    
     .copyright {
       opacity: 0.7;
       font-size: 0.9rem;
     }
-    
     /* Responsive Design */
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 2.25rem;
       }
-      
       .section-title h2 {
         font-size: 1.75rem;
       }
-      
       .hamburger {
         display: block;
       }
-      
       .nav-links {
         position: fixed;
         top: 70px;
@@ -597,35 +549,28 @@
         transform: translateY(-150%);
         transition: transform 0.3s ease;
       }
-      
       .nav-links.active {
         transform: translateY(0);
       }
-      
       .nav-links li {
         margin: 1rem 0;
       }
-      
       .feature-card {
         flex-direction: column;
         align-items: center;
         text-align: center;
       }
-      
       .feature-icon {
         margin-right: 0;
         margin-bottom: 1rem;
       }
-      
       .pricing-card {
         min-width: 100%;
       }
-      
       .pricing-card.featured {
         transform: scale(1);
       }
     }
-    
     /* Animation */
     @keyframes fadeIn {
       from {
@@ -637,27 +582,21 @@
         transform: translateY(0);
       }
     }
-    
     .fade-in {
       animation: fadeIn 1s ease forwards;
     }
-    
     .delay-100 {
       animation-delay: 0.1s;
     }
-    
     .delay-200 {
       animation-delay: 0.2s;
     }
-    
     .delay-300 {
       animation-delay: 0.3s;
     }
-    
     .delay-400 {
       animation-delay: 0.4s;
     }
-    
     .delay-500 {
       animation-delay: 0.5s;
     }
@@ -667,12 +606,13 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">
-      <i class="fas fa-brain"></i> RAISE AI Labs
+      <i class="fas fa-brain"></i> RAISE
     </div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#problem">Problem</a></li>
       <li><a href="#solution">Solution</a></li>
+      <li><a href="#pitch">Pitch</a></li>
       <li><a href="#tech">Tech Stack</a></li>
       <li><a href="#business">Business Model</a></li>
       <li><a href="#vision">Vision</a></li>
@@ -738,7 +678,7 @@
         </div>
         <div class="feature-content">
           <h3>Time Constraints</h3>
-          <p>All of this administrative burden adds up to less time for meaningful teaching and providing personalized student support.</p>
+          <p>All this administrative burden adds up to less time for meaningful teaching and one-on-one student interactions.</p>
         </div>
       </div>
       <div class="feature-card fade-in delay-200">
@@ -784,7 +724,7 @@
         </div>
         <div class="feature-content">
           <h3>Course-Specific Chatbot (AI Office Hours)</h3>
-          <p>Trained on course content, this feature answers repetitive student queries anytime—"What's due this week?", "Explain Merge Sort."</p>
+          <p>Trained on course content, it answers repetitive student queries anytime—"What's due this week?", "Explain Merge Sort," etc.</p>
         </div>
       </div>
       <div class="feature-card fade-in delay-300">
@@ -808,6 +748,87 @@
     </div>
   </section>
 
+  <!-- New Pitch Section -->
+  <section id="pitch" class="pitch">
+    <div class="container">
+      <div class="section-title">
+        <h2>Pitch for Advisors</h2>
+        <p>Five core functions that resonate with startup CFOs, SaaS investors, and mentors—especially if they’re eyeing product clarity and market fit.</p>
+      </div>
+
+      <!-- Pitch Introduction -->
+      <p class="pitch-subtitle">
+        I’m Deepak — a CS grad student at NC State and founder of RAISE AI Labs. I’m building a responsible AI platform that helps professors <em>not just teach better</em>—but understand and engage students like never before. We’re tackling a growing problem: large-scale university classes are impersonal, time-constrained, and full of missed learning signals.
+      </p>
+
+      <!-- 5 Core Ideas -->
+      <div class="pitch-card fade-in">
+        <div class="pitch-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div>
+          <h3>1. AI-Assisted Student Engagement</h3>
+          <p>
+            Real-time, interactive quizzes generated from lecture slides as professors teach. AI agents analyze scores and flag disengaged students, recommending 1:1 meetings or office hours automatically.
+          </p>
+        </div>
+      </div>
+
+      <div class="pitch-card fade-in delay-100">
+        <div class="pitch-icon">
+          <i class="fas fa-pen-fancy"></i>
+        </div>
+        <div>
+          <h3>2. AI-Powered Student Work Review</h3>
+          <p>
+            Coding, math, or written assignments get graded faster with AI. We combine plagiarism detection (Turnitin + MOSS) with LLM-generated feedback. Professors always have the final override.
+          </p>
+        </div>
+      </div>
+
+      <div class="pitch-card fade-in delay-200">
+        <div class="pitch-icon">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <div>
+          <h3>3. AI Content Generation for Professors</h3>
+          <p>
+            Instantly create assignments, slides, or mini-projects using only a topic or learning goal. Think “Notion AI for academics,” but deeply attuned to each prof’s syllabus and teaching style.
+          </p>
+        </div>
+      </div>
+
+      <div class="pitch-card fade-in delay-300">
+        <div class="pitch-icon">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div>
+          <h3>4. Custom AI Teaching Assistants (AI TAs)</h3>
+          <p>
+            Professors train their own course-specific chatbots to re-explain lectures, guide students, and answer questions at any hour—bridging knowledge gaps between classes.
+          </p>
+        </div>
+      </div>
+
+      <div class="pitch-card fade-in delay-400">
+        <div class="pitch-icon">
+          <i class="fas fa-globe-americas"></i>
+        </div>
+        <div>
+          <h3>5. Knowledge Discovery + Weekly Student Updates</h3>
+          <p>
+            RAISE curates relevant research, tools, and discoveries based on class topics. Students get weekly digests, tying what they learn to the real world of their field.
+          </p>
+        </div>
+      </div>
+
+      <!-- Stage & Ask -->
+      <p class="pitch-subtitle fade-in delay-500">
+        <strong>My Stage:</strong> I’ve defined the vision, built the brand, secured the domain, started MVP development, and I’m engaging NC State professors for pilot programs. Now, I’m looking for guidance on refining the business model, fundraising strategy, and scaling plan.
+      </p>
+    </div>
+  </section>
+
   <!-- Tech Stack Section -->
   <section id="tech" class="tech-stack">
     <div class="container">
@@ -824,7 +845,7 @@
         </tr>
         <tr>
           <td>LLM Backend</td>
-          <td>OpenAI GPT-4 / Claude / Mistral / Offline Models</td>
+          <td>OpenAI GPT-4 / Claude / Mistral</td>
         </tr>
         <tr>
           <td>Retrieval (RAG)</td>
@@ -877,9 +898,9 @@
           <h3>Premium Plans</h3>
           <p>For dedicated educators</p>
           <ul>
-            <li>Full quiz generation with insights</li>
-            <li>Advanced auto-grading with human feedback</li>
-            <li>AI Agents for Automonous tasks</li>
+            <li>Full quiz generation</li>
+            <li>Advanced auto-grading</li>
+            <li>LMS integration</li>
             <li>Analytics dashboard</li>
             <li>Unlimited students</li>
           </ul>
@@ -937,6 +958,7 @@
       </div>
       <div class="founder-content">
         <div class="founder-img">
+          <!-- Replace with your actual photo -->
           <img src="deepak_picture.jpeg" alt="Founder Deepak Sai Pendyala" />
         </div>
         <div class="founder-info">
@@ -978,20 +1000,18 @@
         </div>
         <div class="contact-form">
           <h3>Send a Message</h3>
-          <form action="https://formspree.io/f/xwplrzjn" method="POST">
-          <div class="form-group">
-            <input type="text" name="name" class="form-control" placeholder="Your Name" required />
-          </div>
-          <div class="form-group">
-            <input type="email" name="email" class="form-control" placeholder="Your Email" required />
-          </div>
-          <div class="form-group">
-            <textarea name="message" class="form-control" rows="5" placeholder="Your Message" required></textarea>
-          </div>
-          <!-- Optional: Redirect users to a thank-you page -->
-          <!-- <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html" /> -->
-          <button type="submit" class="btn btn-submit">Submit</button>
-        </form>
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Your Name" required/>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Your Email" required/>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-submit">Submit</button>
+          </form>
         </div>
       </div>
     </div>
@@ -1022,7 +1042,9 @@
         <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
         <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
       </div>
-      <p class="copyright">&copy; 2025 RAISE. All rights reserved.</p>
+      <p class="copyright">
+        &copy; 2025 RAISE. All rights reserved.
+      </p>
     </div>
   </footer>
 
